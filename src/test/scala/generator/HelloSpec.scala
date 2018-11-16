@@ -1,4 +1,4 @@
-package example
+package mazerunner
 
 import org.scalatest._
 
