@@ -7,9 +7,9 @@ package mazerunner
 class Maze(width: Int, height: Int) {
 
   // Generate a maze.
-  private var maze: Array[Array[Int]] = Array.fill[Int](height, width)(1)
-  private val entry = (0,1)
-  private val exit  = (height - 1, width - 2)
+  protected var maze: Array[Array[Int]] = Array.fill[Int](height, width)(1)
+  protected val entry = (0,1)
+  protected val exit  = (height - 1, width - 2)
   maze(entry._1 + 1)(entry._2) = 0
 
   // Generate paths.

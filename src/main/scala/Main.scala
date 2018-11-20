@@ -1,8 +1,9 @@
 package mazerunner
 
 object Main extends App {
-  private val maze = new Maze(16,16)
-  maze.show
+  args.foreach(arg => {
+    val maze = new IMaze(32, 32)
+    maze.write(arg + ".bmp")
+  })
 }
-
 
