@@ -29,22 +29,23 @@ class Solver(m: Maze) {
           case D => (start._1, start._2 - 1)
         })
         .filter(p => !path.contains(p)) // Only keep unvisited points
-
+      None
       // if the exit is in the next step, return
-      if (steps.contains(m.getExit)) {
-        Some((path + m.getExit, difficulty(path)))
+      /*if (steps.contains(m.getExit)) {
+        Some((path :+ m.getExit, difficulty(path)))
       } // otherwise recurse
       else {
-        steps.map(p => solve(p, path + p))
-        .fold(None) { (best, p) =>
-          val pdiff = difficulty(p)
+        steps
+        .map(p => solve(p, path :+ p))
+        .foldLeft(None) { (p, best) =>
           best match {
-            case None => Some((p, pdiff))
-            case Some((bestpath, bdiff)) if (bdiff > pdiff) => Some((p, pdiff))
+            case None => Some((p, difficulty(p)))
+            case Some((bestpath, bdiff)) if (bdiff > difficulty(p)) => Some((p, difficulty(p)))
             case o => o
           }
         }
       }
+      */
     }
   }
 }
